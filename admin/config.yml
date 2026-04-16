@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main # আপনার গিটহাব ব্রাঞ্চ master হলে এখানে master লিখে দিন
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "videos"
+    label: "Video Studio"
+    folder: "_posts/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "🎬 Video Title", name: "title", widget: "string"}
+      - {label: "📝 Description", name: "body", widget: "markdown"}
+      - {label: "🖼️ Upload Thumbnail", name: "thumbnail", widget: "image", required: true}
+      - {label: "🔗 YouTube Link", name: "video_url", widget: "string"}
+      - {label: "📂 Category", name: "category", widget: "select", options: ["News", "Sports", "Tech", "Viral"]}
+      - {label: "🏷️ Tags", name: "tags", widget: "list"}
+      # এখানে তারিখের অপশনটি আমি পুরোপুরি সরিয়ে দিয়েছি

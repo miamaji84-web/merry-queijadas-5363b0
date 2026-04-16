@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Global Pulse | International Breaking News & World Analysis</title>
+    <meta name="description" content="Get the latest breaking news from the US, Middle East, and around the world. In-depth analysis on politics, sports, and technology.">
+    <meta name="keywords" content="International News, US News, Middle East Updates, Iran Iraq News, World Politics, Sports, Breaking News 2026">
+    <meta name="robots" content="index, follow">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #d32f2f;
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --border: #e0e0e0;
+            --sidebar-bg: #f9f9f9;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* ১৪. Dark Mode Styling */
+        body.dark-mode {
+            --bg: #121212;
+            --text: #f5f5f5;
+            --border: #333;
+            --sidebar-bg: #1e1e1e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background-color: var(--bg); color: var(--text); transition: 0.3s ease; }
+
+        /* ১৭. Header & Navigation */
+        .top-bar { border-bottom: 1px solid var(--border); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .update-tag { font-size: 11px; font-weight: 800; background: var(--primary); color: #fff; padding: 3px 8px; text-transform: uppercase; }
+
+        header { padding: 20px 5%; text-align: center; border-bottom: 3px double var(--border); }
+        .logo { font-family: var(--font-heading); font-size: 45px; cursor: pointer; text-decoration: none; color: var(--text); }
+        
+        nav { display: flex; justify-content: center; gap: 30px; padding: 15px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 14px; text-transform: uppercase; transition: 0.2s; }
+        nav a:hover { color: var(--primary); }
+
+        /* ২. Hero Section */
+        .container { display: grid; grid-template-columns: 1fr 350px; gap: 40px; padding: 30px 5%; max-width: 1400px; margin: 0 auto; }
+
+        /* ১. Image Size (250px height for premium feel) */
+        .featured-article { cursor: pointer; margin-bottom: 40px; }
+        .featured-article img { width: 100%; height: 400px; object-fit: cover; border-radius: 4px; }
+        .thumbnail-news img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; }
+        
+        h2 { font-family: var(--font-heading); font-size: 32px; margin: 15px 0; line-height: 1.2; }
+        p { color: #666; line-height: 1.6; }
+        body.dark-mode p { color: #bbb; }
+
+        /* ১২. Social Feed & ১১. Multimedia */
+        .sidebar { border-left: 1px solid var(--border); padding-left: 30px; }
+        .widget { background: var(--sidebar-bg); padding: 20px; border-radius: 8px; margin-bottom: 25px; }
+        .video-box { width: 100%; aspect-ratio: 16/9; background: #000; display: flex; align-items: center; justify-content: center; position: relative; color: #fff; border-radius: 4px; }
+
+        /* ৩. Single Post View */
+        #single-post { display: none; max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .full-post-img { width: 100%; height: auto; max-height: 500px; object-fit: cover; margin: 25px 0; }
+
+        /* ৭. Social Sharing & ১৫. Author Profile */
+        .share-bar { display: flex; gap: 15px; margin: 20px 0; border-top: 1px solid var(--border); padding-top: 15px; }
+        .share-bar i { font-size: 20px; cursor: pointer; color: #555; }
+        .share-bar i:hover { color: var(--primary); }
+        .author-card { display: flex; align-items: center; gap: 15px; padding: 20px; background: var(--sidebar-bg); border-radius: 8px; margin-top: 40px; }
+
+        /* ৯. Comments & ১০. Newsletter */
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border); background: var(--bg); color: var(--text); border-radius: 4px; }
+        .btn-main { background: var(--primary); color: #fff; border: none; padding: 12px 25px; cursor: pointer; font-weight: bold; }
+
+        /* ৪ & ৬. Glossary & Legal Pages */
+        footer { background: #111; color: #aaa; padding: 60px 5% 20px; margin-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; border-bottom: 1px solid #333; padding-bottom: 40px; }
+        .footer-links a { display: block; color: #aaa; text-decoration: none; margin-bottom: 10px; font-size: 14px; }
+        .footer-links a:hover { color: #fff; }
+
+        /* ১৬. Push Notification Bell */
+        .notification-bell { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 1000; }
+
+        @media (max-width: 1000px) { .container { grid-template-columns: 1fr; } .sidebar { border-left: none; padding-left: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div>
+        <span class="update-tag">Breaking</span>
+        <marquee style="width: 250px; font-size: 12px; vertical-align: middle;">Global markets react to new trade policies... Middle East peace talks continue...</marquee>
+    </div>
+    <button onclick="toggleDarkMode()" style="background:none; border:none; cursor:pointer; color:var(--text);">
+        <i class="fas fa-circle-half-stroke"></i> Appearance
+    </button>
+</div>
+
+<header>
+    <a href="#" class="logo" onclick="location.reload()">GLOBAL PULSE</a>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">World</a>
+    <a href="#">Middle East</a>
+    <a href="#">US News</a>
+    <a href="#">Sports</a>
+    <a href="#">Economy</a>
+    <a href="#">Technology</a>
+</nav>
+
+<main id="home-view">
+    <div class="container">
+        <section class="main-news">
+            <article class="featured-article" onclick="openArticle('The Geopolitics of 2026: USA-Iran Relations', 'Dr. Sarah Jenkins')">
+                <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200" alt="Diplomacy">
+                <h2>The Geopolitics of 2026: A New Era for USA-Iran Relations</h2>
+                <p>An in-depth look at the diplomatic shifts between Washington and Tehran, and how it impacts the stability of Iraq and the wider region...</p>
+            </article>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="thumbnail-news" onclick="openArticle('Global Sports Championship 2026', 'Mike Ross')">
+                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=600" alt="Sports">
+                    <h3 style="font-family: var(--font-heading);">World Cup 2026: Preparations in Final Stages</h3>
+                </div>
+                <div class="thumbnail-news" onclick="openArticle('Iraq Infrastructure Project', 'Ali Mansour')">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600" alt="Iraq">
+                    <h3 style="font-family: var(--font-heading);">Iraq's Tech Corridor: A Billion Dollar Investment</h3>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h4 style="margin-bottom:15px; text-transform:uppercase; font-size:12px;">Live Media</h4>
+                <div class="video-box">
+                    <i class="fas fa-play fa-2x"></i>
+                    <span style="position:absolute; bottom:10px; font-size:10px;">🔴 LIVE BROADCAST</span>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h4 style="margin-bottom:15px; text-transform:uppercase; font-size:12px;">X Updates</h4>
+                <p style="font-size:13px;"><strong>@GlobalPulse:</strong> Oil prices stabilize as production increases in the Gulf. #EconomyNews</p>
+            </div>
+
+            <div class="widget" style="background:var(--primary); color:#fff;">
+                <h4>Newsletter</h4>
+                <p style="color:#fff; font-size:12px; margin:10px 0;">Get the world's best journalism in your inbox.</p>
+                <input type="email" placeholder="Email Address" style="border:none;">
+                <button class="btn-main" style="background:#000; width:100%;">JOIN NOW</button>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<section id="single-post">
+    <button onclick="closeArticle()" class="btn-main">← BACK TO HOME</button>
+    <h1 id="post-title" style="font-family: var(--font-heading); font-size: 48px; margin-top:30px;"></h1>
+    
+    <div class="share-bar">
+        <span>By <strong id="post-author"></strong></span>
+        <div style="margin-left: auto;">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-whatsapp"></i>
+            <i class="far fa-bookmark"></i>
+        </div>
+    </div>
+
+    <img src="" id="post-img" class="full-post-img">
+    
+    <div style="font-size: 19px; line-height: 1.8; color: var(--text);">
+        <p>In a rapidly changing world, the events of 2026 are setting new precedents for international law and global trade. From the bustling streets of Baghdad to the political corridors of Washington D.C., the flow of information has never been more critical. Our reporters are on the ground providing the most accurate updates...</p>
+    </div>
+
+    <div class="author-card">
+        <div style="width:60px; height:60px; background:#ccc; border-radius:50%;"></div>
+        <div>
+            <h4 id="author-name-card"></h4>
+            <p style="font-size:12px;">Senior International Correspondent with 15 years of experience in Middle Eastern affairs.</p>
+        </div>
+    </div>
+
+    <div style="margin-top:50px; border-top:1px solid var(--border); padding-top:30px;">
+        <h3>Join the Discussion</h3>
+        <textarea rows="4" placeholder="Share your perspective..."></textarea>
+        <button class="btn-main">POST COMMENT</button>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="glossary">
+            <h4 style="color:#fff; margin-bottom:15px;">GLOSSARY</h4>
+            <p style="font-size:12px;"><strong>Geopolitics:</strong> Politics, especially international relations, as influenced by geographical factors.</p>
+            <p style="font-size:12px; margin-top:10px;"><strong>Sanctions:</strong> Commercial and financial penalties applied by countries or groups.</p>
+        </div>
+        <div class="footer-links">
+            <h4 style="color:#fff; margin-bottom:15px;">RESOURCES</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">Cookie Policy</a>
+        </div>
+        <div class="footer-links">
+            <h4 style="color:#fff; margin-bottom:15px;">COMPANY</h4>
+            <a href="#">About Us</a>
+            <a href="#">Contact Support</a>
+            <a href="#">Advertise</a>
+        </div>
+    </div>
+    <p style="text-align:center; margin-top:40px; font-size:12px;">&copy; 2026 Global Pulse Media Group. All rights reserved.</p>
+</footer>
+
+<div class="notification-bell" onclick="alert('Push Notifications Enabled!')">
+    <i class="fas fa-bell"></i>
+</div>
+
+<script>
+    // ১৪. Dark Mode Logic
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+
+    // ৩. Navigation Logic
+    function openArticle(title, author) {
+        document.getElementById('home-view').style.display = 'none';
+        document.getElementById('single-post').style.display = 'block';
+        document.getElementById('post-title').innerText = title;
+        document.getElementById('post-author').innerText = author;
+        document.getElementById('author-name-card').innerText = author;
+        // Sample Image handling
+        document.getElementById('post-img').src = "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200";
+        window.scrollTo(0,0);
+    }
+
+    function closeArticle() {
+        document.getElementById('home-view').style.display = 'block';
+        document.getElementById('single-post').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
